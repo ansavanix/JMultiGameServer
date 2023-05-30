@@ -5,5 +5,5 @@ interface Game {
 	
 	public String prompt();
 	
-	public bool isValidInput();
+	public boolean isValidInput(int move);
 }

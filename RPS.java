@@ -23,7 +23,7 @@ public class RPS implements Game {
 		}
 	}
 	
-	public bool isValidInput(int move) {
+	public boolean isValidInput(int move) {
 	  return move >= 0 && move <= 2;
 	}
 	
