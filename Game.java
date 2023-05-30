@@ -5,7 +5,5 @@ interface Game {
 	
 	public String prompt();
 	
-	public int getMinInput();
-	
-	public int getMaxInput();
+	public bool isValidInput();
 }

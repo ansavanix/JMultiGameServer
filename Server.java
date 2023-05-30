@@ -67,7 +67,7 @@ class ClientHandler extends Thread {
 					activePlayer.sendByte(NetCodes.CONTINUE);
 					String prompt = game.prompt();
 					activePlayer.sendMessage(prompt);
-					selection = activePlayer.validateRecvByte(game.getMinInput(), game.getMaxInput());
+					selection = activePlayer.validateRecvByte(game);
 					gameState = game.move(selection);
 				}
 				//Swap activePlayer

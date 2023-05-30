@@ -12,7 +12,6 @@ public class RPS implements Game {
 	}
 	
 	public int move(int move) {
-		if (move < 0 || move > 2) return Game.INVALID;
 		if (p1 == -1) {
 			p1 = move;
 			return Game.DONE;
@@ -24,12 +23,8 @@ public class RPS implements Game {
 		}
 	}
 	
-	public int getMinInput() {
-		return 0;
-	}
-	
-	public int getMaxInput() {
-		return 2;
+	public bool isValidInput(int move) {
+	  return move >= 0 && move <= 2;
 	}
 	
 	public String prompt() {

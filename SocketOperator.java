@@ -50,6 +50,16 @@ public class SocketOperator {
 		return received;
 	}
 	
+	public int validateRecvByte(Game game) throws Exception {
+    int received = recvByte();
+		while (game.isValidInput(received)) {
+			sendByte(NetCodes.INVALID);
+			received = recvByte();
+		}
+		sendByte(NetCodes.OKAY);
+		return received;
+	}
+
 	public void printMessage() throws Exception {
 		System.out.println(recvMessage());
 	}
