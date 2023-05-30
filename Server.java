@@ -26,6 +26,7 @@ public class Server {
 class ClientHandler extends Thread {
 	private static MultiWaitingRoom mwr = new MultiWaitingRoom(Server.GAMES.length);
 	private SocketOperator so;
+
 	ClientHandler(Socket client) throws Exception {
 		so = new SocketOperator(client);
 	}
@@ -97,8 +98,6 @@ class ClientHandler extends Thread {
 		}
 	}
 }
-
-
 
 class MultiWaitingRoom {
 	private WaitingRoom[] rooms;
