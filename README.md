@@ -5,19 +5,12 @@ A game server that supports multiple games written in Java. Multiple games can b
 The source code is tested and run using OpenJDK 11.
 
 # Running the server
-First, compile the Server file to bytecode:
+Acquire the most recent Server.jar from the releases and run it:
 
-> javac Server.java
-
-Then run the resulting bytecode:
-
-> java Server
+> java -jar Server.jar
 
 # Using the client
-First, compile the client:
-> javac Client.java
+Acquire the most recent Client.jar file from the releases and provide the server address and port number in the arguments when running:
 
-Then run the resulting bytecode and provide the server address and port number in arguments:
-
-> java Client [Server Address] [Port Number]
+> java -jar Client.jar [Server Address] [Port Number]
 
