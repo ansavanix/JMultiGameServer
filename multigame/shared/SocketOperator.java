@@ -10,11 +10,13 @@ public class SocketOperator {
 	private InputStream is;
 	private OutputStream os;
 	private int mSize;
+	private byte[] buffer;
 	public SocketOperator(Socket socket) throws Exception {
 		this.socket = socket;
 		is = socket.getInputStream();
 		os = socket.getOutputStream();
 		mSize = 512;
+		buffer = new byte[mSize];
 	}
 	
 	public SocketOperator(Socket socket, int mSize) throws Exception {
@@ -23,12 +25,11 @@ public class SocketOperator {
 	}
 	
 	public void sendMessage(String message) throws Exception {
-		byte[] padded = new byte[mSize];
 		byte[] m = message.getBytes();
 		for (int i = 0; i < m.length; i++) {
-			padded[i] = m[i];
+			buffer[i] = m[i];
 		}
-		os.write(padded);
+		os.write(buffer);
 	}
 	
 	public void sendByte(int b) throws Exception {
@@ -40,8 +41,8 @@ public class SocketOperator {
 	}
 	
 	public String recvMessage() throws Exception {
-		byte[] message = is.readNBytes(mSize);
-		return (new String(message)).trim();
+		is.readNBytes(buffer, 0, mSize);
+		return (new String(buffer)).trim();
 	}
 	
 	public int validateRecvByte(int min, int max) throws Exception {
